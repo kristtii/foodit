@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <nav>
             <div className={`${style["nav-bar"]} ${style["d-flex"]} ${style["align-center"]} ${style["justify-between"]} ${style["p-l-r"]}`}>
-                <h2 className={style["nav-title"]}>foodit</h2>
+                <h2 className={style["nav-title"]}><a href='/'>foodit</a></h2>
                 <div className={style["nav-elements"]}>
                 <ul className={style["d-flex"]}> 
                         <li><a href="/products">Products</a></li>
