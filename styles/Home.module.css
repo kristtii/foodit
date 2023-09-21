@@ -7,9 +7,26 @@
   padding-top: 15px;
 }
 
-.d-flex{
+.d-flex {
   display: flex;
-  flex-direction: column-reverse;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.pt-10 {
+  padding-top: 20px;
+}
+
+.product-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.flex-column {
+  flex-direction: column;
 }
 
 /* Styles for IntroductionSection */
@@ -20,10 +37,10 @@
 
 .features {
   display: flex;
-    justify-content: space-evenly;
-    margin-top: 20px;
-    align-content: center;
-    flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
 .feature {
@@ -31,7 +48,7 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  margin: 10px;
+  margin: 10px auto;
   margin-top: 5%;
   width: 70%;
   display: flex;

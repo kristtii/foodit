@@ -16,13 +16,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar></Navbar>
+      <Navbar />
       <main className={style["main"]}>
         <div className={style["introduction-container"]}>
           <h1>Welcome to "foodit"!</h1>
           <p>Delicious Food Delivered to Your Doorstep</p>
 
-          <div className={`${style["features"]} ${style["d-flex"]}`}>
+          <div className={`${style["features"]} ${style["d-flex"]} ${style["flex-column"]}`}>
             <div className={style["feature"]}>
               <span role="img" aria-label="Fast Delivery">🍔</span>
               <h2>Quick, Easy, and Convenient</h2>
