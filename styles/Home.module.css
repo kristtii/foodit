@@ -11,11 +11,7 @@
   display: flex;
 }
 
-.m-auto {
-  margin: auto;
-}
-
-.pt-10 {
+.pt-10{
   padding-top: 20px;
 }
 
