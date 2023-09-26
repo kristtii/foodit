@@ -1,3 +1,4 @@
+import React from "react";
 import { useRef } from "react";
 import style from "../styles/Contact.module.css"
 import emailjs from "@emailjs/browser";
@@ -18,17 +19,21 @@ export default function ContactForm() {
                 form.current,
                 "X47ZhVrPjj8UnlFYV"
             )
-            .then(
-                (result) => {
-                    notify("success", "E-mail sent");
-                    location.reload(false);
-                },
-                (error) => {
-                    notify("error", "E-mail not sent");
-                }
-            );
+        // .then(
+        //     (result) => {
+        //         notify("success", "E-mail sent");
+        //         location.reload(false);
+        //     },
+        //     (error) => {
+        //         notify("error", "E-mail not sent");
+        //     }
+        // );
         s.target.reset();
     }
+
+    const notify = React.useCallback((type, message) => {
+        toast({ type, message });
+    }, []);
 
     return (
         <>

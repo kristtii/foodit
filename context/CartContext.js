@@ -1,32 +1,42 @@
-// CartContext.js
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useEffect } from "react";
 
 const CartContext = createContext();
 
 export const useCart = () => {
-  return useContext(CartContext);
+	return useContext(CartContext);
 };
 
+const isBrowser = typeof window !== "undefined";
 const initialState = {
-  items: [],
+	items: isBrowser
+		? JSON.parse(localStorage.getItem("cartItems")) || []
+		: [],
 };
 
 const cartReducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_ITEM":
-      console.log({...state, items: [...state.items, action.payload]})
-      return { ...state, items: [...state.items, action.payload] };
-    default:
-      return state;
-  }
+	switch (action.type) {
+		case "ADD_ITEM":
+			return { ...state, items: [...state.items, action.payload] };
+		case "CLEAR_CART":
+			return { ...state, items: [] };
+		default:
+			return state;
+	}
 };
 
-export const CartProvider = ({ children }) => {
-  const [cartState, dispatch] = useReducer(cartReducer, initialState);
 
-  return (
-    <CartContext.Provider value={{ cartState, dispatch }}>
-      {children}
-    </CartContext.Provider>
-  );
+export const CartProvider = ({ children }) => {
+	const [cartState, dispatch] = useReducer(cartReducer, initialState);
+
+	useEffect(() => {
+		if (isBrowser) {
+			localStorage.setItem("cartItems", JSON.stringify(cartState.items));
+		}
+	}, [cartState.items]);
+
+	return (
+		<CartContext.Provider value={{ cartState, dispatch }}>
+			{children}
+		</CartContext.Provider>
+	);
 };

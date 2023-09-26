@@ -18,12 +18,10 @@ const productUI = (props) => {
     };
 
     dispatch({ type: "ADD_ITEM", payload: product });
-    alert(`${props.title} has been added to the cart.`);
-    console.log(dispatch);
   };
   return (
     <div className={style["card"]}>
-      <div className={style["card-img"]}><Image src={props.image} width={props.width} height={props.height} alt={props.title}/></div>
+      <div className={style["card-img"]}><Image src={props.image} width={props.width} height={props.height} alt={props.title} /></div>
       <div className={style["card-info"]}>
         <p className={style["text-title"]}>{props.title}</p>
         <p className={style["text-body"]}>{props.description}</p>
